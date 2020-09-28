@@ -21,7 +21,7 @@ namespace WpfTestMailSender
             SecurePassword = _password;
         }
 
-        public string Send()
+        public void Send()
         {
             Settings st = new Settings();
             List<MailAddress> listStrMails = st.To;// Список email'ов //кому мы отправляем письмо
@@ -41,18 +41,10 @@ namespace WpfTestMailSender
                     {
                         sc.EnableSsl = true;
                         sc.Credentials = new NetworkCredential(st.From.Address, SecurePassword);
-                        try
-                        {
-                            sc.Send(mm);
-                        }
-                        catch (Exception ex)
-                        {
-                            return $"Невозможно отправить письмо {ex.ToString()}";
-                        }
+                        sc.Send(mm);                                                
                     }
                 }
-            }
-            return "";
+            }            
         }
     }
 }
