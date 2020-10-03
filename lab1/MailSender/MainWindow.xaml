@@ -44,7 +44,7 @@
 
                             <Label x:Name="lSmtp" Content="Серверы" Height="25" Width="Auto" Margin="0,0,24,0"/>
                             <ComboBox ItemsSource="{x:Static data:TestData.Servers}" DisplayMemberPath="Address"
-                                      x:Name="cbSmtpSelect" Height="25" Margin="0"
+                                      x:Name="ServerList" Height="25" Margin="0"
                                       VerticalAlignment="Top" Width="270" SelectedIndex="0" ToolTip="Выбрать smtp-сервер">
                                 <!--<ComboBoxItem>smtp.yandex.ru:587</ComboBoxItem>
                                 <ComboBoxItem>smtp.gmail.com</ComboBoxItem>
@@ -64,7 +64,7 @@
 
                         <ToolBar x:Name="tbSender" Band="1" Width="Auto" Height="30">
                             <Label x:Name="ISender" Width="Auto" Height="25">Отправители</Label>
-                            <ComboBox ItemsSource="{x:Static data:TestData.Senders}" x:Name="cbSenderSelect" Width="270" Height="25" SelectedIndex="0" ToolTip="Выбрать email отправителя">
+                            <ComboBox ItemsSource="{x:Static data:TestData.Senders}" x:Name="SendersList" Width="270" Height="25" SelectedIndex="0" ToolTip="Выбрать email отправителя">
                                 <!--<ComboBoxItem Content="logovol@yandex.ru"></ComboBoxItem>
                                 <ComboBoxItem Content="pasha1985@inbox.ru"></ComboBoxItem>-->
                                 <ComboBox.ItemTemplate>
@@ -121,7 +121,7 @@
 
                     </ToolBarTray>
                     <GroupBox Header="Список получателей">
-                        <DataGrid ItemsSource="{x:Static data:TestData.Recipients}" AutoGenerateColumns="False"
+                        <DataGrid Name="RecipientsList" ItemsSource="{x:Static data:TestData.Recipients}" AutoGenerateColumns="False"
                                   GridLinesVisibility="Vertical"
                                   AlternatingRowBackground="LightGray"
                                   VerticalGridLinesBrush="Gray">
@@ -152,7 +152,7 @@
                                         <Setter Property="Background" Value="White"/>
                                     </Style>
                                 </StackPanel.Resources>
-                                <Button Content="Отправить"/>
+                                <Button Content="Отправить" Click="OnSendButtonClick"/>
                                 <Button Content="Запланировать"/>
                             </StackPanel>
                         </StackPanel>

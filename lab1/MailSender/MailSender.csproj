@@ -66,7 +66,6 @@
     <Compile Include="Models\Recipient.cs" />
     <Compile Include="Models\Sender.cs" />
     <Compile Include="Models\Server.cs" />
-    <Compile Include="SchedulerClass.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -75,9 +74,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AppConfigClass.cs" />
-    <Compile Include="DBClass.cs" />
-    <Compile Include="EmailSendServiceClass.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -110,12 +106,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="envelope.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="clock.png" />
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\add.png" />
@@ -123,6 +115,12 @@
     <Resource Include="Images\delete.png" />
     <Resource Include="Images\edit.png" />
     <Resource Include="Images\envelope.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MailSender.lib\MailSender.lib.csproj">
+      <Project>{64cfb233-dca8-467f-ab02-f4f14091a917}</Project>
+      <Name>MailSender.lib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
