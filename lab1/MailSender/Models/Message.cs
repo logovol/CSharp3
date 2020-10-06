@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MailSender
+namespace MailSender.Models
 {
-    class AppConfigClass
+    class Message
     {
+        public string Subject { get; set; }
+        public string Body { get; set; }
     }
 }

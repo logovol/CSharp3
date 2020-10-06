@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MailSender
+namespace MailSender.Models
 {
-    class DBClass
+    class Recipient
     {
+        public string Name { get; set; }
+        public string Address { get; set; }
     }
 }
